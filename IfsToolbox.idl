@@ -1,0 +1,270 @@
+// IfsToolbox.idl : IDL source for IfsToolbox.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IfsToolbox.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+#include "olectl.h"
+	
+
+[
+	uuid(217F7A4F-D4CC-4C15-A66F-86688733090F),
+	version(1.0),
+	helpstring("IfsToolbox 1.0 Type Library")
+]
+library IFSTOOLBOXLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IToolBoxTabs;
+	interface IToolBoxTab;
+	interface IToolBoxItems;
+	interface IToolBoxItem;
+ 
+	typedef [v1_enum] enum ToolBoxItemFormat
+	{
+		ToolBoxItemFormatText=0,
+		ToolBoxItemFormatHTML=1,
+		ToolBoxItemFormatGUID=2,
+		ToolBoxItemFormatPointer=3,
+
+	} ToolBoxItemFormat;
+
+
+	[ 
+		object,
+		uuid(4A5854D2-EEC7-415F-B7C9-C20FB1A899E2),
+		dual,
+		helpstring("IToolbox Interface"),
+		pointer_default(unique)
+	]
+	interface IToolbox : IDispatch
+	{
+		[propputref, id(DISPID_FONT)]
+		HRESULT Font([in]IFontDisp* pFont);
+		[propput, id(DISPID_FONT)]
+		HRESULT Font([in]IFontDisp* pFont);
+		[propget, id(DISPID_FONT)]
+		HRESULT Font([out, retval]IFontDisp** ppFont);
+		[propput, id(DISPID_ENABLED)]
+		HRESULT Enabled([in]VARIANT_BOOL vbool);
+		[propget, id(DISPID_ENABLED)]
+		HRESULT Enabled([out,retval]VARIANT_BOOL* pbool);
+		[propget, id(DISPID_HWND)]
+		HRESULT Window([out, retval]long* phwnd);
+		[propget, id(1), helpstring("Returns the collection of Tabs on the tool box.")] 
+		HRESULT ToolBoxTabs([out, retval] IToolBoxTabs* *pVal);
+		[propget, id(2), helpstring("Returns the currently active item in the collection.")] 
+		HRESULT ActiveTab([out, retval] IToolBoxTab* *pVal);
+		[propget, id(3), helpstring("property DTE")] 
+		HRESULT DTE([out, retval] LPDISPATCH *pVal);
+		[propput, id(3), helpstring("property DTE")] 
+		HRESULT DTE([in] LPDISPATCH newVal);
+		[propget, id(4), helpstring("Enable/Disbale showing of popup menu")] 
+		HRESULT ShowPopupMenu([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(4), helpstring("Enable/Disbale showing of popup menu")] 
+		HRESULT ShowPopupMenu([in] VARIANT_BOOL newVal);
+		[propget, id(5), helpstring("Shows/Hides Customize popup menu item.")] 
+		HRESULT PMICustomize([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(5), helpstring("Shows/Hides Customize popup menu item.")] 
+		HRESULT PMICustomize([in] VARIANT_BOOL newVal);
+	};
+
+	[
+		uuid(E9CA9CB0-1CA0-4C7A-9CE7-DA2EDC1D40DD),
+		helpstring("IToolboxEvents Interface")
+	]
+	dispinterface IToolboxEvents
+	{
+		properties:
+		methods:
+		[id(1), helpstring("Fired when Tab was qdded")] 
+		HRESULT TabAdded([in] int TabID, [in] BSTR bstrTabName);
+		[id(2), helpstring("Fired when Tab was removed")] 
+		HRESULT TabRemoved([in] int TabID, [in] BSTR bstrTabName);
+		[id(3), helpstring("Fired when Tab was Activated")] 
+		HRESULT TabActivated([in] int TabID, [in] BSTR bstrTabName);
+		[id(4), helpstring("Fired when Item was removed")] 
+		HRESULT ItemRemoved([in] int ID, [in] BSTR Name);
+		[id(5), helpstring("Fired when Item was added")] 
+		HRESULT ItemAdded([in] int ID, [in] BSTR Name);
+		[id(6), helpstring("Fired when Item was selected")] 
+		HRESULT ItemSelected([in] int ID, [in] IToolBoxItem* pItem);
+		[id(7), helpstring("Fired when Item was hidden")] 
+		HRESULT ItemHidden([in] int ID,  [in] BSTR Name);
+		[id(8), helpstring("method TabNameChanged")] 
+		HRESULT TabNameChanged([in] int ID, [in] BSTR Name);
+		[id(9), helpstring("method TabListViewChanged")] 
+		HRESULT TabListViewChanged([in] int ID, [in] BSTR Name, [in] VARIANT_BOOL ListView);
+		[id(10), helpstring("Invoked when user select Customize from popup menu.")] 
+		HRESULT CustomizeClicked([in] int TabID, [in] BSTR TabName);
+		[id(11), helpstring("method TabHidden")] HRESULT TabHidden([in] int ID, [in] BSTR Name, [in] VARIANT_BOOL Hidden);
+	};
+	[
+		object,
+		uuid(A7CEA18F-93F9-4CBE-90A1-8CFEF82BE11A),
+		dual,
+		helpstring("IToolBoxTabs Interface"),
+		pointer_default(unique)
+	]
+	interface IToolBoxTabs : IDispatch
+	{
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")] 
+		HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(DISPID_Parent), helpstring("Returns the Toolbox object.")] 
+		HRESULT Parent([out, retval] IToolbox* *pVal);
+		[propget, id(3), helpstring("Returns the top-level extensibility object.")] 
+		HRESULT DTE([out, retval] LPDISPATCH *pVal);
+		[propget, id(DISPID_VALUE), helpstring("Returns an indexed member of a collection.")] 
+		HRESULT Item(VARIANT index, [out, retval] IToolBoxTab* *pVal);
+		[propget, id(5), helpstring("Returns value indicating the count of ToolBoxTabs in the collection.")] 
+		HRESULT Count([out, retval] long *pVal);
+		[id(6), helpstring("method Add")] HRESULT Add([in] BSTR bstrName, [out, retval] IToolBoxTab** pToolBoxTab);
+	};
+
+	[
+		uuid(CA65189C-6495-4C3B-9762-04476D998250),
+		helpstring("Toolbox Class")
+	]
+	coclass Toolbox
+	{
+		[default] interface IToolbox;
+		[default, source] dispinterface IToolboxEvents;
+	};
+	
+	[
+		object,
+		uuid(0141D84E-2565-4DE1-AF95-BF70273501CB),
+		dual,
+		helpstring("IToolBoxTab Interface"),
+		pointer_default(unique)
+	]
+	interface IToolBoxTab : IDispatch
+	{
+		[propget, id(1), helpstring("Name of the Tab")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("Name of the Tab")] HRESULT Name([in] BSTR newVal);
+		[propget, id(2), helpstring("Guid of the Tab.")] HRESULT Guid([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("Guid of the Tab.")] HRESULT Guid([in] BSTR newVal);
+		[id(3), helpstring("Removes an object from a collection")] HRESULT Delete();
+		[id(4), helpstring("Moves the focus to the specified window.")] HRESULT Activate();
+		[propget, id(5), helpstring("Parent collection of tabs")] HRESULT Collection([out, retval] IToolBoxTabs* *pVal);
+		[propget, id(6), helpstring("Sets/Gets a ListView of the tab")] HRESULT ListView([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(6), helpstring("Sets/Gets a ListView of the tab")] HRESULT ListView([in] VARIANT_BOOL newVal);
+		[propget, id(7), helpstring("property DTE")] HRESULT DTE([out, retval] LPDISPATCH *pVal);
+		[propget, id(8), helpstring("Tab items.")] HRESULT ToolBoxItems([out, retval] IToolBoxItems* *pVal);
+		[propget, id(9), helpstring("Sets/Gets deleteable property.")] HRESULT Deleteable([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(9), helpstring("Sets/Gets deleteable property.")] HRESULT Deleteable([in] VARIANT_BOOL newVal);
+		[propget, id(10), helpstring("Returns true if Tab is hidden.")] HRESULT Hidden([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(10), helpstring("Hiddes the Tab.")] HRESULT Hidden([in] VARIANT_BOOL newVal);
+		[propget, id(11), helpstring("ID of a Tab")] HRESULT ID([out, retval] int *pVal);
+
+	};
+
+	[
+		uuid(8AD3C7A9-6494-44CE-89C5-50CDE5579D55),
+		helpstring("ToolBoxTabs Class"),
+		noncreatable
+	]
+	coclass ToolBoxTabs
+	{
+		[default] interface IToolBoxTabs;
+	};
+
+	[
+		object,
+		uuid(AD281E04-D150-4FD1-A74D-2F7C86658742),
+		dual,
+		helpstring("IToolBoxItem Interface"),
+		pointer_default(unique)
+	]
+	interface IToolBoxItem : IDispatch
+	{
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(2), helpstring("property Guid")] HRESULT Guid([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Guid")] HRESULT Guid([in] BSTR newVal);
+		[id(3), helpstring("Removes an Item from a collection.")] HRESULT Delete();
+		[id(4), helpstring("Causes this item to become active in the user interface.")] HRESULT Select();
+		[propget, id(5), helpstring("Returns the collection containing the object supporting this property.")] HRESULT Collection([out, retval] IToolBoxItems* *pVal);
+		[propget, id(6), helpstring("property DTE")] HRESULT DTE([out, retval] LPDISPATCH *pVal);
+		[propget, id(7), helpstring("property Format")] HRESULT Format([out, retval] ToolBoxItemFormat *pVal);
+		[propput, id(7), helpstring("property Format")] HRESULT Format([in] ToolBoxItemFormat newVal);
+		[propget, id(8), helpstring("property Data")] HRESULT Data([out, retval] VARIANT *pVal);
+		[propput, id(8), helpstring("property Data")] HRESULT Data([in] VARIANT newVal);
+		[propget, id(9), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(9), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		[propget, id(10), helpstring("Hides or shows Item")] HRESULT Hidden([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(10), helpstring("Hides or shows Item")] HRESULT Hidden([in] VARIANT_BOOL newVal);
+		[propget, id(11), helpstring("property Deleteable")] HRESULT Deleteable([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(11), helpstring("property Deleteable")] HRESULT Deleteable([in] VARIANT_BOOL newVal);
+		[propget, id(12), helpstring("property ID")] HRESULT ID([out, retval] int *pVal);
+	};
+
+	[
+		uuid(466BBEE5-1B6C-4C27-AE0D-1F9F2FDC1478),
+		helpstring("ToolBoxTab Class"),
+		noncreatable
+	]
+	coclass ToolBoxTab
+	{
+		[default] interface IToolBoxTab;
+	};
+	
+	[
+		object,
+		uuid(20C96C4B-34A5-4BC5-AE4D-3CC97B78C8FC),
+		dual,
+		helpstring("IToolBoxItems Interface"),
+		pointer_default(unique)
+	]
+	interface IToolBoxItems : IDispatch
+	{
+		[propget, restricted, id(DISPID_NEWENUM), helpstring("property _NewEnum")]
+		HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+		[propget, id(DISPID_VALUE), helpstring("Returns an indexed member of a collection.")] 
+		HRESULT Item(VARIANT index, [out, retval] IToolBoxItem* *pVal);
+		[propget, id(3), helpstring("Returns value indicating the count of objects in the collection.")] 
+		HRESULT Count([out, retval] long *pVal);
+		[propget, id(4), helpstring("Returns the currently active item in the collection.")] 
+		HRESULT SelectedItem([out, retval] IToolBoxItem* *pVal);
+		[propget, id(DISPID_Parent), helpstring("property Parent")] 
+		HRESULT Parent([out, retval] IToolBoxTab* *pVal);
+		[id(6), helpstring("Adds an item to the tool box.")] 
+		HRESULT Add([in] BSTR Name, [in] VARIANT Data, [in, optional, defaultvalue(ToolBoxItemFormatText)] ToolBoxItemFormat Format, [out, retval] IToolBoxItem** ppItem);
+		[propget, id(7), helpstring("property DTE")] 
+		HRESULT DTE([out, retval] LPDISPATCH *pVal);
+
+	};
+
+	[
+		uuid(E0EED2DB-2B17-4470-8BDD-FCBBA583A7B2),
+		helpstring("ToolBoxItem Class"),
+		noncreatable
+	]
+	coclass ToolBoxItem
+	{
+		[default] interface IToolBoxItem;
+	};
+
+	[
+		uuid(C1AD471F-724F-48EB-8264-BF9E827FC547),
+		helpstring("ToolBoxItems Class"),
+		noncreatable
+	]
+	coclass ToolBoxItems
+	{
+		[default] interface IToolBoxItems;
+	};
+
+	[
+		uuid(CB212624-90E3-44B5-9E1A-6DE7CC814A55),
+		helpstring("PPToolbox Class")
+	]
+	coclass PPToolbox
+	{
+		interface IUnknown;
+	};
+};
