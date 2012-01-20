@@ -1,0 +1,8 @@
+#summary One-sentence summary of this page.
+#labels Featured,Phase-Implementation
+
+= References=
+
+  * [http://www.viksoe.dk/code/accessbar.htm MS Access Bar] - by Bjarke Viksoe.
+  * [http://www.viksoe.dk/code/atldataobj.htm DataObject] and other stuf - by Bjarke Viksoe.
+  * [http://www.sellsbrothers.com/tools/ CComBool] - by Chris Sells.
