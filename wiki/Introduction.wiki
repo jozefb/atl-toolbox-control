@@ -59,3 +59,19 @@ Collection of Toolbox tab objects.
 Collection of Toolbox tab item objects.
 
 These interfaces allow you to manipulate an object from Visual Basic (or VB script) using For..Next and For...Each syntax:
+{{{
+Private Sub Form_Load()
+Dim tab As ToolBoxTab
+  Set tab = Toolbox1.ToolBoxTabs.Add("Tb 1")
+  For Each tab In Toolbox1.ToolBoxTabs
+    tb.Name = "Tab"
+  Next
+End Sub
+}}}
+
+= Events = 
+There is an event dispatch interface _IToolboxEvents_, and it is related to the _Toolbox_ object.
+
+= Property pages =
+In this version, the Toolbox has its own property page for enabling a popup menu and its "customize" menu item. It has a stock font property page as well.
+[http://www.codeproject.com/KB/atl/An_ATL_Toolbox_control/prop_page.jpg]
