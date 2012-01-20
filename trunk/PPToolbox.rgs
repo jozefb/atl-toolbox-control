@@ -1,0 +1,23 @@
+HKCR
+{
+	IfsToolbox.PPToolbox.1 = s 'PPToolbox Class'
+	{
+		CLSID = s '{CB212624-90E3-44B5-9E1A-6DE7CC814A55}'
+	}
+	IfsToolbox.PPToolbox = s 'PPToolbox Class'
+	{
+		CLSID = s '{CB212624-90E3-44B5-9E1A-6DE7CC814A55}'
+		CurVer = s 'IfsToolbox.PPToolbox.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CB212624-90E3-44B5-9E1A-6DE7CC814A55} = s 'PPToolbox Class'
+		{
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+}

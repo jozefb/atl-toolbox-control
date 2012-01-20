@@ -1,0 +1,26 @@
+HKCR
+{
+	IfsToolbox.ToolBoxItem.1 = s 'ToolBoxItem Class'
+	{
+		CLSID = s '{E0EED2DB-2B17-4470-8BDD-FCBBA583A7B2}'
+	}
+	IfsToolbox.ToolBoxItem = s 'ToolBoxItem Class'
+	{
+		CLSID = s '{E0EED2DB-2B17-4470-8BDD-FCBBA583A7B2}'
+		CurVer = s 'IfsToolbox.ToolBoxItem.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E0EED2DB-2B17-4470-8BDD-FCBBA583A7B2} = s 'ToolBoxItem Class'
+		{
+			ProgID = s 'IfsToolbox.ToolBoxItem.1'
+			VersionIndependentProgID = s 'IfsToolbox.ToolBoxItem'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{217F7A4F-D4CC-4C15-A66F-86688733090F}'
+		}
+	}
+}

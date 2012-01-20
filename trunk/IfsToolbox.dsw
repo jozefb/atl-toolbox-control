@@ -1,0 +1,62 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "IfsSolution"=..\IfsSolution\IfsSolution.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/IFSDB/IfsSolution", DPHAAAAA
+    ..\ifssolution
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "IfsToolbox"=.\IfsToolbox.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/IFSDB/IfsToolbox", JOIAAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Test"=.\Test\Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+    {CA65189C-6495-4C3B-9762-04476D998250}
+}}}
+
+###############################################################################
+

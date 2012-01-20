@@ -1,0 +1,291 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+#include "atlres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "#include ""atlres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "1 TYPELIB ""IfsToolbox.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "IfsToolbox Module\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "IfsToolbox\0"
+            VALUE "LegalCopyright", "Copyright 2005\0"
+            VALUE "OriginalFilename", "IfsToolbox.DLL\0"
+            VALUE "ProductName", "IfsToolbox Module\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "OLESelfRegister", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_TOOLBOX             BITMAP  DISCARDABLE     "res\\toolbox.bmp"
+IDB_TAB_BASE            BITMAP  DISCARDABLE     "res\\tab_base.bmp"
+IDB_DELETE              BITMAP  DISCARDABLE     "res\\delete.bmp"
+IDB_MOVE_UP             BITMAP  DISCARDABLE     "res\\move_up.bmp"
+IDB_MOVE_DOWN           BITMAP  DISCARDABLE     "res\\move_down.bmp"
+IDB_CUT                 BITMAP  DISCARDABLE     "res\\cut.bmp"
+IDB_COPY                BITMAP  DISCARDABLE     "res\\copy.bmp"
+IDB_PASTE               BITMAP  DISCARDABLE     "res\\paste.bmp"
+IDB_CTRL_DEFAULT        BITMAP  DISCARDABLE     "res\\ctrl_default.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_TOOLBOX             REGISTRY DISCARDABLE    "Toolbox.rgs"
+IDR_TOOLBOXTAB          REGISTRY DISCARDABLE    "ToolBoxTab.rgs"
+IDR_TOOLBOXITEM         REGISTRY DISCARDABLE    "ToolBoxItem.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_TBX_TABITEM_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "_O_"
+    BEGIN
+        MENUITEM "Cu&t",                        ID_EDIT_CUT, GRAYED
+        MENUITEM "Cop&y",                       ID_EDIT_COPY
+        MENUITEM "&Paste",                      ID_EDIT_PASTE, GRAYED
+        MENUITEM "&Delete Item",                ID_DELETE_TABITEM, GRAYED
+        MENUITEM "&Rename Item",                ID_RENAME_TABITEM
+        MENUITEM SEPARATOR
+        MENUITEM "Customize...",                ID_CUSTOMIZE_TBX
+        MENUITEM "&Add Tab",                    ID_ADD_TAB
+        MENUITEM "&List View",                  ID_LIST_VIEW
+        MENUITEM "&Show All Tabs",              ID_SHOW_ALL_TABS
+        MENUITEM SEPARATOR
+        MENUITEM "Move &Up",                    ID_MOVE_UP
+        MENUITEM "Move Do&wn",                  ID_MOVE_DOWN
+    END
+END
+
+IDR_TBX_TAB_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "_O_"
+    BEGIN
+        MENUITEM "Delete Tab",                  ID_DELETE_TAB
+        MENUITEM "Rename Tab",                  ID_RENAME_TAB
+        MENUITEM SEPARATOR
+        MENUITEM "Customize...",                ID_CUSTOMIZE_TBX
+        MENUITEM "Add Tab",                     ID_ADD_TAB
+        MENUITEM "List View",                   ID_LIST_VIEW
+        MENUITEM "&Hide",                       ID_HIDE_TAB
+        MENUITEM "&Show All Tabs",              ID_SHOW_ALL_TABS
+        MENUITEM SEPARATOR
+        MENUITEM "Move &Up",                    ID_MOVE_UP
+        MENUITEM "Move Do&wn",                  ID_MOVE_DOWN
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PPTOOLBOX DIALOG DISCARDABLE  0, 0, 271, 105
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Show Popup Menu",IDC_CHECK_SHOW_POPUP,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,11,81,13
+    GROUPBOX        "Popup menu items",IDC_STATIC_PMI,14,28,233,62
+    CONTROL         "Customize item",IDC_CHECK_CUSTOMIZE_ITEM,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,23,39,64,12
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAIN ACCELERATORS DISCARDABLE 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_SHOW_ALL_ITEMS,      VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_PPTOOLBOX, DIALOG
+    BEGIN
+        VERTGUIDE, 14
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJNAME            "IfsToolbox"
+    IDS_TITLEPPToolbox      "Toolbox"
+    IDS_HELPFILEPPToolbox   "Help File Name"
+    IDS_DOCSTRINGPPToolbox  "Your Help String"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_E_INVALID_ARG       "Invalid argument"
+    ID_ADD_TAB              "Add Tab\nAdds new Tab"
+    IDS_E_INVALID_INDEX     "Invalid index"
+    ID_DELETE_TABITEM       "Delete Item\nDelete Item"
+    IDS_DELETE_TAB_Q_FMT    "Tab '%s' will be removed.\n\nContinue?"
+    IDS_TOOLBOX             "Toolbox"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_COPY            "Copy\nCopy"
+    ID_EDIT_CUT             "Cut\nCut"
+    ID_EDIT_PASTE           "Paste\nPaste"
+    IDS_E_ITEM_NOT_DELETEABLE "Item is not deleteable"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_E_TB_ITEMWITHNAME_EXIST "Tab item name '%s' already exists"
+    IDS_E_TAB_WITHNAME_EXIST "Tab name '%s' already exists"
+    ID_HIDE_TAB             "Hide\nHide"
+    ID_SHOW_ALL_TABS        "Show All Tabs\nShow All Tabs"
+    IDS_CAPTION_CANNOTBE_EMPTY "Caption can not be empty"
+    IDS_E_CANNOT_OPEN_RK_FOR_CTRL_FMT 
+                            "Can not open registry key for control '%s'"
+    IDS_POINTER             "Pointer"
+    IDS_E_ITEM_POINTER_ALREADY_EXIST "Item 'Pointer' already exist"
+    IDS_DELETE_ITEM_Q_FMT   "Item '%s' will be removed.\n\nContinue?"
+    IDS_TEXT                "Text"
+    IDS_HTML                "Html"
+    ID_SHOW_ALL_ITEMS       "Show All Items\nShow All Items"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_PPTOOLBOX           REGISTRY DISCARDABLE    "PPToolbox.rgs"
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "IfsToolbox.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
