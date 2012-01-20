@@ -1,5 +1,5 @@
 #summary Description of the library.
-#labels Featured,Phase-Implementation
+#labels Featured,Phase-Design
 
 = Introduction =
 
@@ -11,3 +11,31 @@ This article presents a Toolbox control similar to the one used in Visual Studio
 Because I couldn't find such a control on the Internet, I decided write it myself. In the beginning, I had to fight with the GUI, but when I found a great article MS Access Bar written by Bjarke Viksoe, the fight was done.
 
 I do not have much time to completely describe each and every method of all interfaces, but I'll give you a short overview. This version of the Toolbox contains some bugs that I have not fixed (moving tabs by selecting Move up/down from popup menu... try and you will find them) and the work is not finished yet, because of lack of time - but I am working on it.
+
+= Implementation =
+
+The Toolbox is a classic full ATL control. For my requirements I had to extend Bjarke Viksoe's MS Access Bar control (I have changed the code for drawing tabs and have added some helper methods).
+
+The Toolbox control consists of six interfaces:
+
+* IToolbox
+* IToolBoxTab
+* ITooBoxItem
+* IToolBoxTabs
+* IToolBoxItems
+* IToolboxEvents
+
+== Interfaces related to the GUI ==
+= IToolbox =
+
+Represents the main control.
+
+= IToolBoxTab = 
+
+Represents a Toolbox tab object. You can rearrange tab positions by dragging them with mouse or by choosing the appropriate command from the popup menu (this does not work correctly).
+
+= IToolBoxItem =
+
+Represents a Toolbox tab item object.
+
+There are four kinds of tab items (the names are borrowed from VS.NET 2003 Toolbox, and they are self describing I think :-)
