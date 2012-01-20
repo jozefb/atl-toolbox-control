@@ -1,0 +1,13 @@
+#summary Description of the library.
+#labels Featured,Phase-Implementation
+
+= Introduction =
+
+This article presents a Toolbox control similar to the one used in Visual Studio .NET 2003. The main target was to achieve maximum similarity with the VS.NET Toolbox object model and GUI behaviour. It is written as an ATL ActiveX control using WTL 7.5 and STL and ATL collections.
+
+
+= Details =
+
+Because I couldn't find such a control on the Internet, I decided write it myself. In the beginning, I had to fight with the GUI, but when I found a great article MS Access Bar written by Bjarke Viksoe, the fight was done.
+
+I do not have much time to completely describe each and every method of all interfaces, but I'll give you a short overview. This version of the Toolbox contains some bugs that I have not fixed (moving tabs by selecting Move up/down from popup menu... try and you will find them) and the work is not finished yet, because of lack of time - but I am working on it.
