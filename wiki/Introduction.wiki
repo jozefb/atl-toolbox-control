@@ -40,10 +40,10 @@ Represents a Toolbox tab item object.
 
 There are four kinds of tab items (the names are borrowed from VS.NET 2003 Toolbox, and they are self describing I think :-)
 
-  * ToolBoxItemFormatText - As a data contains text value, and displays "text" icon.
-  * ToolBoxItemFormatHTML - As a data contains text value, and displays "html" icon.
-  * ToolBoxItemFormatGUID - An ActiveX control, as a data contains the GUID of a control and displays the icon from a control DLL.
-  * ToolBoxItemFormatPointer - displays "arrow" icon, data property is empty.
+  * _ToolBoxItemFormatText_ - As a data contains text value, and displays "text" icon.
+  * _ToolBoxItemFormatHTML_ - As a data contains text value, and displays "html" icon.
+  * _ToolBoxItemFormatGUID_ - An ActiveX control, as a data contains the GUID of a control and displays the icon from a control DLL.
+  * _ToolBoxItemFormatPointer_ - displays "arrow" icon, data property is empty.
 
 [http://www.codeproject.com/KB/atl/An_ATL_Toolbox_control/gui_rel_interfaces.jpg]
 
