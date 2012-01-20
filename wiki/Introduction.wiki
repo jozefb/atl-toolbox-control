@@ -74,4 +74,13 @@ There is an event dispatch interface _IToolboxEvents_, and it is related to the 
 
 = Property pages =
 In this version, the Toolbox has its own property page for enabling a popup menu and its "customize" menu item. It has a stock font property page as well.
+
 [http://www.codeproject.com/KB/atl/An_ATL_Toolbox_control/prop_page.jpg]
+
+= Popup menu =
+
+There are two different popup menus for the Tab and the Tab Item. For the Tab Item, you can cut, copy and paste the Tab Item or paste text from the clipboard to the _Toolbox_ as the Tab Item of type _ToolBoxItemFormatText_.
+
+[http://www.codeproject.com/KB/atl/An_ATL_Toolbox_control/tab_popup_menu.jpg]
+
+[http://www.codeproject.com/KB/atl/An_ATL_Toolbox_control/item_popup_menu.jpg]
