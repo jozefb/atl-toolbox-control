@@ -18,24 +18,26 @@ The Toolbox is a classic full ATL control. For my requirements I had to extend B
 
 The Toolbox control consists of six interfaces:
 
-* IToolbox
-* IToolBoxTab
-* ITooBoxItem
-* IToolBoxTabs
-* IToolBoxItems
-* IToolboxEvents
+  * _IToolbox_
+  * _IToolBoxTab_
+  * _ITooBoxItem_
+  * _IToolBoxTabs_
+  * _IToolBoxItems_
+  * _IToolboxEvents_
 
-== Interfaces related to the GUI ==
-= IToolbox =
+= Interfaces related to the GUI ==
+== IToolbox ==
 
 Represents the main control.
 
-= IToolBoxTab = 
+== IToolBoxTab ==
 
 Represents a Toolbox tab object. You can rearrange tab positions by dragging them with mouse or by choosing the appropriate command from the popup menu (this does not work correctly).
 
-= IToolBoxItem =
+== IToolBoxItem ==
 
 Represents a Toolbox tab item object.
 
 There are four kinds of tab items (the names are borrowed from VS.NET 2003 Toolbox, and they are self describing I think :-)
+
+[http://www.codeproject.com/KB/atl/An_ATL_Toolbox_control/gui_rel_interfaces.jpg Toolbox]
