@@ -45,5 +45,17 @@ There are four kinds of tab items (the names are borrowed from VS.NET 2003 Toolb
   * ToolBoxItemFormatGUID - An ActiveX control, as a data contains the GUID of a control and displays the icon from a control DLL.
   * ToolBoxItemFormatPointer - displays "arrow" icon, data property is empty.
 
-
 [http://www.codeproject.com/KB/atl/An_ATL_Toolbox_control/gui_rel_interfaces.jpg]
+
+The functionalities of the described interfaces are nearly the same as that of VS.NET 2003 toolbox interfaces, with some extra methods and properties. Interface _IToolboxEvents_ is a dispatch event interface.
+
+= Collection and enumerator interfaces = 
+
+There are two collections and enumerator interfaces (more on this kind of interfaces is described in this article):
+== IToolBoxTabs ==
+Collection of Toolbox tab objects.
+
+== IToolBoxItems == 
+Collection of Toolbox tab item objects.
+
+These interfaces allow you to manipulate an object from Visual Basic (or VB script) using For..Next and For...Each syntax:
