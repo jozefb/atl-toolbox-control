@@ -3,6 +3,8 @@ Toolbox control similar to the one used in Visual Studio .NET 2003.
 
 The main target was to achieve maximum similarity with the VS.NET Toolbox object model and GUI behaviour. It is written as an ATL ActiveX control using WTL 7.5 and STL and ATL collections.
 
+![ATL_Toolbox_control](/images/An_ATL_Toolbox_control.jpg)
+
 ##Introduction
 This article presents a Toolbox control similar to the one used in Visual Studio .NET 2003. The main target was to achieve maximum similarity with the VS.NET Toolbox object model and GUI behaviour. It is written as an ATL ActiveX control using WTL 7.5 and STL and ATL collections.
 
@@ -40,6 +42,7 @@ There are four kinds of tab items (the names are borrowed from VS.NET 2003 Toolb
 * ToolBoxItemFormatGUID - An ActiveX control, as a data contains the GUID of a control and displays the icon from a control DLL.
 * ToolBoxItemFormatPointer? - displays "arrow" icon, data property is empty.
 
+![UI Related Interfaces](/images/gui_rel_interfaces.jpg)
 
 The functionalities of the described interfaces are nearly the same as that of VS.NET 2003 toolbox interfaces, with some extra methods and properties. Interface IToolboxEvents is a dispatch event interface.
 
@@ -68,11 +71,18 @@ There is an event dispatch interface IToolboxEvents, and it is related to the To
 ###Property pages
 In this version, the Toolbox has its own property page for enabling a popup menu and its "customize" menu item. It has a stock font property page as well.
 
-
+![Property Page](/images/prop_page.jpg)
 
 ###Popup menu
-There are two different popup menus for the Tab and the Tab Item. For the Tab Item, you can cut, copy and paste the Tab Item or paste text from the clipboard to the Toolbox as the Tab Item of type ToolBoxItemFormatText?.
+There are two different popup menus:
+* Tab Popup menu
+* Tab Item Popup menu 
 
+For the Tab Item, you can cut, copy and paste the Tab Item or paste text from the clipboard to the Toolbox as the Tab Item of type ToolBoxItemFormatText?.
+
+![TAB Popup Menu](/images/tab_popup_menu.jpg)
+
+![TAB Item Popup Menu](/images/item_popup_menu.jpg)
 
 ## References
 * MS Access Bar - by Bjarke Viksoe.
