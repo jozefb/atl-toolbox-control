@@ -1,4 +1,4 @@
-# WTL Docview Framework
+# ATL Toolbox Control
 Toolbox control similar to the one used in Visual Studio .NET 2003.
 
 The main target was to achieve maximum similarity with the VS.NET Toolbox object model and GUI behaviour. It is written as an ATL ActiveX control using WTL 7.5 and STL and ATL collections.
